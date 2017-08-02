@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试</title>
+<style>
+	.title{
+		text-align: center;
+		font-size: 24px;
+	}
+	.app_input{
+		width: 200px;
+		margin:20px auto;
+	}
+</style>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app" class="title">
+  <p>{{ message }}</p>
+</div>
+<div id="app1">
+  <ul>
+  	<todo-item
+  	v-for = 'item in dlist' 
+  	v-bind:todo = 'item' 
+  	v-bind:key = 'item.id'>
+  	</todo-item>
+  </ul>
+</div>
+<div id="app2" class="app_input">
+  <h5>{{ message }}</h5>
+  <input v-model='message'>
+</div>
+<script>
+var  app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Helo Vue.js!'
+  }
+});
+
+//列表
+Vue.component('todo-item',{
+	props:["todo"],
+	template:'<li>{{ todo.text }}</li>'
+})
+var app1 = new Vue({
+	el:"#app1",
+	data:{
+		dlist:[{
+			"id":1,
+			"text":"VUE介绍"
+		},{
+			"id":2,
+			"text":"基本语法"
+		},{
+			"id":3,
+			"text":"实例"
+		}]
+	}
+});
+
+//数据绑定
+var app2 = new Vue({
+	el:'#app2',
+	data:{
+		message:''
+	}
+})
+</script>
+</body>
+</html>
