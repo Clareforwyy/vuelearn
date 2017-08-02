@@ -48,7 +48,7 @@ var app3 = new Vue({
 	methods: {
 		bclick: function() {
 			this.seen ? this.seen = false : this.seen = true;
-			date.aa();
+			//date.aa();
 		}
 	}
 })
