@@ -34,7 +34,9 @@
 
 <!-- 数据绑定 -->
 <div id="app2" class="app_input">
+	<p>数据动态绑定</p>
   <h5>{{ message }}</h5>
+  <h5 v-once>{{ message }}</h5>
   <input v-model='message'>
 </div>
 
@@ -43,56 +45,6 @@
 	<p v-if="seen">我是内容</p>
 	<button v-on:click="bclick" v-bind:title="message">点我文字显示隐藏</button>
 </div>
-<script>
-var  app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Helo Vue.js!'
-  }
-});
-
-//列表
-Vue.component('todo-item',{
-	props:["todo"],
-	template:'<li>{{ todo.text }}</li>'
-})
-var app1 = new Vue({
-	el:"#app1",
-	data:{
-		dlist:[{
-			"id":1,
-			"text":"VUE介绍"
-		},{
-			"id":2,
-			"text":"基本语法"
-		},{
-			"id":3,
-			"text":"实例"
-		}]
-	}
-});
-
-//数据绑定
-var app2 = new Vue({
-	el:'#app2',
-	data:{
-		message:''
-	}
-})
-
-//点击显示隐藏
-var app3 = new Vue({
-	el:'#app3',
-	data:{
-		seen:true,
-		message:'点击显示隐藏' + new Date()
-	},
-	methods:{
-		bclick:function() {
-			this.seen ? this.seen = false : this.seen = true;
-		}
-	}
-})
-</script>
+<script src="../js/app.js"></script>
 </body>
 </html>
