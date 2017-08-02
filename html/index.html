@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Vue 测试</title>
+<title>Vue 简单例子-王英宇</title>
 <style>
 	.title{
 		text-align: center;
@@ -16,9 +16,12 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
+<!-- title -->
 <div id="app" class="title">
   <p>{{ message }}</p>
 </div>
+
+<!-- 循环数据 -->
 <div id="app1">
   <ul>
   	<todo-item
@@ -28,9 +31,17 @@
   	</todo-item>
   </ul>
 </div>
+
+<!-- 数据绑定 -->
 <div id="app2" class="app_input">
   <h5>{{ message }}</h5>
   <input v-model='message'>
+</div>
+
+<!-- 点击显示隐藏 -->
+<div id="app3" class="app_showorhide">
+	<p v-if="seen">我是内容</p>
+	<button v-on:click="bclick" v-bind:title="message">点我文字显示隐藏</button>
 </div>
 <script>
 var  app = new Vue({
@@ -66,6 +77,20 @@ var app2 = new Vue({
 	el:'#app2',
 	data:{
 		message:''
+	}
+})
+
+//点击显示隐藏
+var app3 = new Vue({
+	el:'#app3',
+	data:{
+		seen:true,
+		message:'点击显示隐藏' + new Date()
+	},
+	methods:{
+		bclick:function() {
+			this.seen ? this.seen = false : this.seen = true;
+		}
 	}
 })
 </script>
