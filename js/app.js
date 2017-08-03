@@ -35,7 +35,7 @@ var app2 = new Vue({
 })
 
 //点击显示隐藏
-// var date = new Date();
+var date = new Date();
 // date.getTime = function() {
 // 	alert("xss")
 // }

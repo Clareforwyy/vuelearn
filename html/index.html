@@ -12,8 +12,11 @@
 		width: 200px;
 		margin:20px auto;
 	}
+	p{
+		height: 22px;
+	}
 </style>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="../js/vue.js"></script>
 </head>
 <body>
 <!-- title -->
@@ -45,6 +48,12 @@
 	<p v-if="seen">我是内容</p>
 	<button v-on:click="bclick" v-bind:title="message">点我文字显示隐藏</button>
 </div>
+
+<!-- 简写 -->
+<p>#v-bind:url简写为:url</p>
+<p>### <<span>a</span> v-bind:url><<span>/a</span>> 简写 ： <<span>a</span> :url><<span>/a</span>>
+<p>#v-on:eclick简写为@eclick</p>
+<p>### <<span>a</span> v-on:eclick><<span>/a</span>> 简写 ： <<span>a</span> @eclick><<span>/a</span>>
 <script src="../js/app.js"></script>
 </body>
 </html>
