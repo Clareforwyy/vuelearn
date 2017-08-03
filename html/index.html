@@ -54,6 +54,51 @@
 <p>### <<span>a</span> v-bind:url><<span>/a</span>> 简写 ： <<span>a</span> :url><<span>/a</span>>
 <p>#v-on:eclick简写为@eclick</p>
 <p>### <<span>a</span> v-on:eclick><<span>/a</span>> 简写 ： <<span>a</span> @eclick><<span>/a</span>>
+
+<!-- 计算属性computed -->
+<p>计算属性：computed</p>
+<div id="app4">
+	<p>文字：{{ message }}</p>
+	<p>反向文字：{{ remessage }}</p>
+</div>
+
+<!-- watch -->
+<div id="demo">{{ fullName }}</div>
+
 <script src="../js/app.js"></script>
+<script>
+	var app4 = new Vue({
+		el:"#app4",
+		data:{
+			message: "我是内容文字sss"
+		},
+		computed:{
+			remessage:function() {
+				return this.message.split("").reverse().join("/")
+			}
+		}
+	});
+
+	var vm = new Vue({
+	  el: '#demo',
+	  data: {
+	    firstName: 'Foo1',
+	    lastName: 'Bar',
+	    
+	  },
+	  computed: {
+	    // firstName: function (val) {
+	    // 	console.log(this.fullName)
+	    //   this.fullName = val + ' ' + this.lastName
+	    // },
+	    // lastName: function (val) {
+	    //   this.fullName = this.firstName + ' ' + val
+	    // }
+	    fullName:function(val){
+			return this.fullName =  this.firstName  + ' ' + this.lastName
+	    }
+	  }
+	})
+</script>
 </body>
 </html>
